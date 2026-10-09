@@ -1,0 +1,107 @@
+{
+ "r5compare": {
+  "evolution alone": {
+   "F": 4.16,
+   "q": 0.0,
+   "one": 0.572,
+   "solved": 2,
+   "gen": 144
+  },
+  "individual learning, $a{=}0$": {
+   "F": 19.69,
+   "q": 0.094,
+   "one": 0.906,
+   "solved": 12,
+   "gen": 0
+  },
+  "social alone, $k{=}1$ parent": {
+   "F": 1.0,
+   "q": 0.515,
+   "one": 0.237,
+   "solved": 0,
+   "gen": -1
+  },
+  "social alone, $k{=}5$ decile": {
+   "F": 16.78,
+   "q": 0.482,
+   "one": 0.47,
+   "solved": 10,
+   "gen": 8
+  },
+  "blend, $a{=}0.8$": {
+   "F": 18.26,
+   "q": 0.455,
+   "one": 0.519,
+   "solved": 12,
+   "gen": 8
+  },
+  "blend, $a$ evolves": {
+   "F": 19.83,
+   "q": 0.414,
+   "one": 0.586,
+   "solved": 12,
+   "gen": 2
+  },
+  "\\textsc{switch}": {
+   "F": 19.33,
+   "q": 0.53,
+   "one": 0.47,
+   "solved": 12,
+   "gen": 0
+  }
+ },
+ "r5long": {
+  "individual learning": {
+   "pq": 0.1,
+   "free": 0.9,
+   "stuck": 0.1,
+   "mid": -0.0
+  },
+  "\\textsc{switch}": {
+   "pq": 0.31,
+   "free": 0.683,
+   "stuck": 0.308,
+   "mid": 0.008
+  },
+  "blend, $a$ evolves": {
+   "pq": 0.327,
+   "free": 0.642,
+   "stuck": 0.292,
+   "mid": 0.067
+  },
+  "blend, $a{=}0.8$": {
+   "pq": 0.354,
+   "free": 0.608,
+   "stuck": 0.308,
+   "mid": 0.083
+  }
+ },
+ "rogers": {
+  "corr": 0.491,
+  "F_hi": 19.93,
+  "F_lo": 19.694,
+  "a_evolved": 0.83,
+  "F_evolved": 19.848,
+  "F_fixed": {
+   "0.0": 19.811,
+   "0.2": 19.73,
+   "0.4": 19.742,
+   "0.6": 19.742,
+   "0.8": 19.838,
+   "1.0": 16.781
+  }
+ },
+ "drift": {
+  "fixed0": 0.725,
+  "stuck": 0.275,
+  "mid": 0.0,
+  "slope": -0.315,
+  "N_sweep": {
+   "125": 0.425,
+   "250": 0.45,
+   "500": 0.337,
+   "1000": 0.319,
+   "2000": 0.169
+  }
+ }
+}
