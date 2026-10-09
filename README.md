@@ -1,6 +1,6 @@
 # The forces at hand: social learning is permissive, not instructive, for the evolution of phenotypic plasticity
 
-Code, simulation outputs and figures for the manuscript (Nam Le, submitted to
+Code, simulation outputs and figures for the manuscript (Nam H. Le, submitted to
 *Journal of the Royal Society Interface*).
 
 The model is the Hinton–Nowlan landscape with a social channel split into a

@@ -90,7 +90,7 @@ for ax, b in zip(axes, B):
             if c['n_bq'] < 6:
                 ax.add_patch(Rectangle((x0, y0), x1 - x0, y1 - y0, facecolor="#e1e0d9",
                                        edgecolor="#fcfcfb", hatch="////", linewidth=1.5))
-                txt = f"{c['n_alive']} alive" if c['n_alive'] else "extinct"
+                txt = f"{c['n_alive']}/12" if c['n_alive'] else ""
                 ax.text(XI[p], YI[a], txt, ha="center", va="center", fontsize=6.3, color="#52514e")
             else:
                 ax.text(XI[p], YI[a], f"{c['k_pos']}/{c['n_bq']}", ha="center", va="center",
@@ -110,7 +110,7 @@ cb = fig.colorbar(sm, ax=axes, shrink=0.85, pad=0.02)
 cb.set_label(r"selection on plasticity, $\beta_q\cdot\mathrm{SD}(n_?)$  (fitness units)")
 fig.text(0.01, -0.03,
          "cell label: runs with $\\beta_q>0$ / runs measured;  black outline: analytic criterion "
-         "predicts $\\beta_q>0$;  hatched: population extinct", fontsize=7, color="#52514e")
+         "predicts $\\beta_q>0$;  hatched: collapsed (lost the target) in most runs; a number gives the runs that kept it", fontsize=7, color="#52514e")
 out = os.path.join(HERE, "..", "figs", "fig26_sign_boundary")
 fig.savefig(out + ".pdf", bbox_inches="tight"); fig.savefig(out + ".png", dpi=160, bbox_inches="tight")
 json.dump(dict(agree=agree, total=total,

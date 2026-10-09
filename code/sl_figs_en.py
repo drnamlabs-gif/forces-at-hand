@@ -66,7 +66,7 @@ def fig_rogers(ex):
     ax[0].set_xticklabels(["lowest quartile of $a$", "highest quartile of $a$"])
     ax[0].set_ylim(min(lo, hi) - 0.35, max(lo, hi) + 0.12)
     ax[0].set_ylabel("individual fitness")
-    ax[0].set_title(f"Within a population: a more open gate pays\n"
+    ax[0].set_title(f"Within a population, a more open gate pays:\n"
                     f"correlation of $a$ with fitness $= {corr:+.2f}$", loc="left")
     ax[1].plot(ws, Ffix, "-o", ms=4, color=C["red"], label="$a$ held fixed")
     ax[1].scatter([aev], [Fev], s=70, marker="*", color=C["blue"], zorder=5,
@@ -74,7 +74,7 @@ def fig_rogers(ex):
     ax[1].set_xlabel("attention gate $a$")
     ax[1].set_ylabel("population mean fitness")
     ax[1].legend(fontsize=7.5, loc="lower left")
-    ax[1].set_title("Across populations: a more open gate does not", loc="left")
+    ax[1].set_title("Across populations, a more open gate does not pay", loc="left")
     save(fig, "fig23_rogers_en")
     TAB["rogers"] = dict(corr=round(corr, 3), F_hi=round(hi, 3), F_lo=round(lo, 3),
                          a_evolved=round(aev, 3), F_evolved=round(Fev, 3),
@@ -101,7 +101,7 @@ def fig_drift(ex):
 
     fig, ax = plt.subplots(1, 2, figsize=(7.0, 2.6))
     ax[0].hist(lq, bins=np.linspace(0, 1, 26), color=C["blue"])
-    ax[0].set_xlabel("frequency of ``?'' at a locus, generation 3000")
+    ax[0].set_xlabel("frequency of '?' at a locus, generation 3000")
     ax[0].set_ylabel("number of loci (6 runs $\\times$ 20)")
     ax[0].set_title("Two spikes, nothing between:\ndrift, not a selective equilibrium",
                     loc="left")
@@ -109,7 +109,7 @@ def fig_drift(ex):
                label=f"slope $\\approx {b:.2f}$ (log--log)")
     ax[1].set_xscale("log"); ax[1].set_yscale("log")
     ax[1].set_xlabel("population size $N$")
-    ax[1].set_ylabel("final frequency of ``?''")
+    ax[1].set_ylabel("final frequency of '?'")
     ax[1].legend(fontsize=7.5)
     ax[1].set_title("Retained plasticity falls with $N$\n(4 runs per point)",
                     loc="left")
@@ -127,7 +127,7 @@ ROWS = [
  ("evolution alone",            dict(plastic=False, w=0.0),                 C["gray"]),
  ("individual learning, $a{=}0$", dict(w=0.0, who='parent'),                C["ink"]),
  ("social alone, $k{=}1$ parent", dict(w=1.0, who='parent'),                C["red"]),
- ("social alone, $k{=}5$ decile", dict(w=1.0, k=5, who='top_decile'),       C["orange"]),
+ ("social alone, $k{=}5$, fittest tenth", dict(w=1.0, k=5, who='top_decile'),       C["orange"]),
  ("blend, $a{=}0.8$",            dict(w=0.8, k=5, who='top_decile'),        C["blue"]),
  ("blend, $a$ evolves",          dict(evolve_w=True, k=5, who='top_decile'), C["aqua"]),
  ("switch",            dict(mode='switch', who='parent'),          C["violet"]),
@@ -172,11 +172,11 @@ def fig_compare(ex):
     off = {"evolution alone": (0.03, 0.0),
            "individual learning, $a{=}0$": (-0.09, 1.8),
            "social alone, $k{=}1$ parent": (0.03, 0.0),
-           "social alone, $k{=}5$ decile": (0.74, 14.0),
+           "social alone, $k{=}5$, fittest tenth": (0.74, 14.0),
            "blend, $a{=}0.8$": (0.74, 17.2),
            "blend, $a$ evolves": (0.56, 22.2),
            "switch": (0.70, 21.0)}
-    cluster = {"social alone, $k{=}5$ decile", "blend, $a{=}0.8$",
+    cluster = {"social alone, $k{=}5$, fittest tenth", "blend, $a{=}0.8$",
                "blend, $a$ evolves", "switch"}
     for (lab, kw, col), (F, q) in zip(ROWS, pts):
         xt, yt = off[lab]
@@ -188,7 +188,7 @@ def fig_compare(ex):
         else:
             ax[0].annotate(lab, (q, F), xytext=(q + xt, F + yt),
                            fontsize=7, color=col, ha="left", va="center")
-    ax[0].set_xlabel("frequency of ``?'' at generation 200")
+    ax[0].set_xlabel("frequency of '?' at generation 200")
     ax[0].set_ylabel("population mean fitness")
     ax[0].set_xlim(-0.04, 1.02); ax[0].set_ylim(0, 23.5)
     ax[0].set_title("Seven regimes, one landscape", loc="left")
@@ -205,8 +205,8 @@ def fig_compare(ex):
             pq=round(pqm, 3), free=round(free[-1], 3), stuck=round(stuck[-1], 3),
             mid=round(mid[-1], 3))
     x = np.arange(len(LONG))
-    ax[1].bar(x, free, 0.6, color=C["gray"], label="fixed, no ``?''")
-    ax[1].bar(x, stuck, 0.6, bottom=free, color=C["red"], label="stuck at ``?''")
+    ax[1].bar(x, free, 0.6, color=C["gray"], label="fixed, no ?")
+    ax[1].bar(x, stuck, 0.6, bottom=free, color=C["red"], label="stuck at ?")
     ax[1].bar(x, mid, 0.6, bottom=np.array(free) + stuck, color=C["aqua"],
               label="intermediate")
     ax[1].set_xticks(x); ax[1].set_xticklabels(labs, fontsize=7)
